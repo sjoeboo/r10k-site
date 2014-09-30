@@ -1,4 +1,4 @@
-class pacakges( $packages = [] ) {
+class packages( $packages = [] ) {
   package { $packages:
     ensure => installed,
   }
