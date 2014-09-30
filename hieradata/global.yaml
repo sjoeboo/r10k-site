@@ -1,0 +1,8 @@
+---
+packages:
+  - nmap
+  - htop
+  - jnettop
+  - iotop
+  - zsh
+  - ack
