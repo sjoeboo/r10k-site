@@ -1,0 +1,10 @@
+[agent]
+classfile = $vardir/classes.txt
+localconfig = $vardir/localconfig
+runinterval = <%= scope['puppet::params::puppet_interval'] %>
+splay = true
+report = true
+pluginsync = true
+graph = true
+configtimeout = 3600 
+environment = <%= @env %>

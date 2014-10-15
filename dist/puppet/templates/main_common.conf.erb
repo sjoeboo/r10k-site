@@ -1,0 +1,9 @@
+[main]
+ca_server = <%=  scope['puppet::params::puppet_ca'] %>
+server = <%=  scope['puppet::params::puppet_server'] %>
+pluginsync = true
+autoflush = true
+vardir = /var/lib/puppet
+logdir = /var/log/puppet
+rundir = /var/run/puppet
+ssldir = <%=  scope['puppet::params::puppet_ssldir'] %>

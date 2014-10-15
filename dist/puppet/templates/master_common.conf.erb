@@ -1,0 +1,14 @@
+[master]
+ca_server = <%= scope['puppet::params::puppet_ca'] %>
+route_file = /etc/puppet/routes.yaml
+node_terminus = plain
+yamldir = /var/lib/puppet/yaml
+reportdir = /var/lib/puppet/reports
+reports = foreman,puppetdb,hipchat
+graphdir = /var/lib/puppet/state/graphs
+report = true
+storeconfigs = true
+storeconfigs_backend = puppetdb
+environment = production
+manifest = $confdir/environments/$environment/manifests/site.pp
+modulepath = $confdir/environments/$environment/modules:$confdir/environments/$environment/site:$confdir/environments/$environment/dist
