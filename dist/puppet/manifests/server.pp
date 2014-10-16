@@ -1,6 +1,6 @@
 class puppet::server {
   #does common setup for puppet ca's/compilation nodes (slaves)
-  include foreman::facts
+ # include foreman::facts
   #Add dns_alt names and other [main] settings
   concat::fragment { 'puppet_main_masters':
     target  => '/etc/puppet/puppet.conf',
