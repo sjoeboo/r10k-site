@@ -21,7 +21,7 @@ class puppet::server {
     order   => '20',
   }
   #Install/set up apache/passenger
-  $packages = ['puppetdb-terminus','puppet-server']
+  $packages = ['puppet-server']
   package { $packages:
     ensure => installed,
   }
@@ -61,11 +61,11 @@ class puppet::server {
     target => '/etc/puppet/environments/production/puppetdb.conf',
     backup => false,
   }
-  file { '/etc/puppet/routes.yaml':
-    ensure => link,
-    target => '/etc/puppet/environments/production/routes.yaml',
-    backup => false,
-  }
+  #file { '/etc/puppet/routes.yaml':
+  #  ensure => link,
+  #  target => '/etc/puppet/environments/production/routes.yaml',
+  #  backup => false,
+  #}
   file { '/etc/puppet/auth.conf':
     ensure => link,
     target => '/etc/puppet/environments/production/auth.conf',
