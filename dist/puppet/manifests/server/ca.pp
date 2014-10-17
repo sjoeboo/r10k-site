@@ -34,27 +34,4 @@ class puppet::server::ca {
     'set X-Client-Verify %{SSL_CLIENT_VERIFY}e',
     ],
   }
-  #script to help do cert cleans/deactivates
-  file { '/usr/local/bin/puppet_rebuild_host':
-    source  => 'puppet:///modules/puppet/puppet_rebuild_host.rb',
-    owner   => root,
-    group   => root,
-    mode    => '0744',
-  }
-  #backup certs etc
-  include fstab::backups
-  file { "/n/backups/servers/${::hostname}/":
-    ensure  => directory,
-    backup  => false,
-    require => Class['fstab::backups'],
-  }
-  storage::backup::job  { "${::hostname}_puppet_ca_ssl":
-    source          => '/var/lib/puppet/ssl/',
-    destination     => "/n/backups/servers/${::hostname}/var_lib_puppet_ssl",
-    retain_interval => 'hourly',
-    retain_number   => 48,
-    hour            => '*',
-    minute          => '0',
-    require         => File["/n/backups/servers/${::hostname}/"],
-  }
 }
